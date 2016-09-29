@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+ <meta attribute="class-description">
+         This class contains the request detail. 
+ </meta>
+ <class name="ru.outofrange.model.RequestEntity" table="REQUEST">
+ <id name="id" type="long" column="ID" >
+ 	  <generator class="native"/>
+ </id>
+ <property name="requestBody" type="java.lang.String">
+ 	<column name="REQUEST_BODY" length="10000"/>
+ </property>
+ <property name="remoteHost" type="java.lang.String" >
+ 	<column name="REMOTE_HOST" length="30"/>
+ </property>
+ <property name="extractedContent" type="java.lang.String" >
+ 	<column name="EXTRACTED_CONTENT" length="100"/>
+ </property>
+ <property name="date" type="java.util.Date" not-null="false">
+ 	<column name="DATE" sql-type="timestamp" default="now()" not-null="true"/>
+ </property>
+  <property name="method" type="java.lang.String" >
+ 	<column name="METHOD" length="9"/>
+ </property>
+ </class>
+</hibernate-mapping>
